@@ -38,7 +38,21 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+
+<form method="POST" action="/addTodo">
+  {!! csrf_field() !!}
+
+  <div>
+      Content
+      <input type="text" name="content" value="{{ old('content') }}">
+  </div>
+
+
+
+  <div>
+      <button type="submit">Login</button>
+  </div>
+</form>
             </div>
         </div>
     </body>
