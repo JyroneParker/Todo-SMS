@@ -29,7 +29,7 @@ class TodoCreatedListener
         //set todo
         $todo = $event->todo;
         Mail::send(['text' => $todo->content], ['todo'=>$todo], function ($message) {
-    $message->from(env('MAIL_USERNAME').'@'.env('MAIL_HOST'), 'Todo');
+    $message->from(env('MAIL_USERNAME'), 'Todo');
 
     $message->to(env('PHONE'));
 });
