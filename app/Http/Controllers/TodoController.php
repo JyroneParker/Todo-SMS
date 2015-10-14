@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Events\TodoCreatedEvent;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -40,6 +40,8 @@ class TodoController extends Controller
         $todo = Todo::Create([
           'content' => $request->content
           ]);
+          //launch event
+          event(new TodoCreatedEvent($todo));
           return view('/');
     }
 
