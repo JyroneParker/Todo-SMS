@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Todo;
 use App\Events\TodoCreatedEvent;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -37,9 +38,9 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         //create Todo Model and
-        $todo = Todo::Create([
-          'content' => $request->content
-          ]);
+        $todo = new Todo;
+
+          $todo->content = $request->content;
           //launch event
           event(new TodoCreatedEvent($todo));
           return view('/');

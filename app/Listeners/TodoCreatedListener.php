@@ -27,8 +27,8 @@ class TodoCreatedListener
     public function handle(TodoCreatedEvent $event)
     {
         //set todo
-        $todo = $event->todo;
-        Mail::send(['text' => $todo->content], ['todo'=>$todo], function ($message) {
+        $text = $event->todo->content;
+        Mail::raw(['text' => $text], function ($message) {
     $message->from(env('MAIL_USERNAME'), 'Todo');
 
     $message->to(env('PHONE'));
