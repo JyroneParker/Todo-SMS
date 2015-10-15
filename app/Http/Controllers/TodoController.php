@@ -35,7 +35,7 @@ class TodoController extends Controller
           $todo->save();
           //launch event
           event(new TodoCreatedEvent($todo));
-          return $todo;
+          return redirect('/');
     }
 
     /**
@@ -47,7 +47,7 @@ class TodoController extends Controller
     public function show($id)
     {
         //return model instance
-        $todo = Todo:find($id);
+        $todo = Todo::find($id);
         return $todo;
     }
 
