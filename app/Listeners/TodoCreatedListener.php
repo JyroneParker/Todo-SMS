@@ -29,9 +29,8 @@ class TodoCreatedListener
         //set todo
         $text = $event->todo->content;
         Mail::raw($text, function ($message) {
-    $message->from(env('MAIL_USERNAME'), 'Todo');
-
-    $message->to(env('PHONE'));
+    $message->from(env('MAIL_USERNAME','john.smith@email.com'));
+    $message->to(env('PHONE','123-456-7890@gateway.com'));
 });
     }
 }
