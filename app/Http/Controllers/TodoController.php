@@ -41,9 +41,10 @@ class TodoController extends Controller
         $todo = new Todo;
 
           $todo->content = $request->content;
+          //$todo->save();
           //launch event
           event(new TodoCreatedEvent($todo));
-          return view('/');
+          return view('welcome');
     }
 
     /**
