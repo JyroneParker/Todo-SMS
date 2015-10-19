@@ -15,10 +15,13 @@ Route::get('/',['as' => 'home', function (\Illuminate\Http\Request $request) {
   if ($request->session()->has('user')) {
     //
     $user = $request->session()->get('user');
-    return view('welcome')->with(['user',$user]);
-
+    //var_dump($user); exit();
+    return view('welcome')->with(['user'=> $user]);
 }
-    return view('welcome');
+else{
+return view('welcome');
+}
+
 }]);
 
 Route::post('addTodo','TodoController@store');

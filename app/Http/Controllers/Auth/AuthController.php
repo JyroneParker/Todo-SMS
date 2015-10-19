@@ -81,11 +81,12 @@ class AuthController extends Controller
    public function handleProviderCallback(\Illuminate\Http\Request $request)
    {
        $user = Socialite::driver('facebook')->user();
-
-
-       $request->session()->put('user', $user);
-       
-
+       $userSession = [
+         "name" =>$user->name,
+         "email"=>$user->email,
+         "avatar"=>$user->avatar,
+       ];
+       $request->session()->push('user', $userSession);
        return redirect()->route('home');
    }
 }

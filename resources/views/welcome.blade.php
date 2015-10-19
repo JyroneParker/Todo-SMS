@@ -33,6 +33,9 @@
             .title {
                 font-size: 96px;
             }
+            img{
+              border-radius: 50px;
+            }
         </style>
     </head>
     <body>
@@ -40,14 +43,15 @@
             <div class="content">
 
               @if(isset($user))
-              <img src="{{$user->avatar}}"/>
+              <h2>Welcome back {{$user['name']}}</h2>
+              <img src="{{$user['avatar']}}"/>
               @endif
 <form method="POST" action="/addTodo">
   {!! csrf_field() !!}
 
   <div>
-      Content
-      <input type="text" name="content" value="{{ old('content') }}">
+
+      <input type="text" name="content" placeholder="Content" value="{{ old('content') }}">
   </div>
 
 
