@@ -33,8 +33,12 @@
             .title {
                 font-size: 96px;
             }
-            img{
+            .facebook{
               border-radius: 50px;
+            }
+            #facebook{
+              width:350px;
+              height:105px;
             }
         </style>
 
@@ -43,9 +47,11 @@
 
         <div class="container">
             <div class="content">
+              <h1>Todo SMS</h1>
+              <p> This simple app allows you to create a todo item and send it to yourself as a text message. If you want persistence log in with Facebook!</p>
               @if(isset($user))
               <h2>Welcome back {{$user['name']}}</h2>
-              <img src="{{$user['avatar']}}"/>
+              <img class="facebook" src="{{$user['avatar']}}"/>
               @foreach ($todos as $todo)
               <p>{{ $todo->content }}</p>
               @endforeach
@@ -93,11 +99,12 @@
 
 
                 <div>
-                    <button type="submit">Add Todo </button> <br> <a href="/auth/facebook">Connect With Facebook </a>
+                    <button type="submit">Add Todo </button> <br> <a href="/auth/facebook">
+                      <img id="facebook" src="http://cdn.wind8apps.com/wp-content/uploads/2015/06/facebook-connect.png"/></a>
                 </div>
               </form>
               @endif
-              
+
             </div>
         </div>
     </body>
