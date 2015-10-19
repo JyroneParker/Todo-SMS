@@ -33,26 +33,52 @@
             .title {
                 font-size: 96px;
             }
+            img{
+              border-radius: 50px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="content">
 
-<form method="POST" action="/addTodo">
-  {!! csrf_field() !!}
+              @if(isset($user))
+              <h2>Welcome back {{$user['name']}}</h2>
+              <img src="{{$user['avatar']}}"/>
+              @foreach ($todos as $todo)
+              <p>{{ $todo->content }}</p>
+              @endforeach
+              <form method="POST" action="/addTodo">
+                {!! csrf_field() !!}
 
-  <div>
-      Content
-      <input type="text" name="content" value="{{ old('content') }}">
-  </div>
+                <div>
+
+                    <input type="text" name="content" placeholder="Content" value="{{ old('content') }}">
+                </div>
 
 
 
-  <div>
-      <button type="submit">Add Todo </button>
-  </div>
-</form>
+                <div>
+                    <button type="submit">Add Todo </button>
+                </div>
+              </form>
+              @else
+              <form method="POST" action="/addTodo">
+                {!! csrf_field() !!}
+
+                <div>
+
+                    <input type="text" name="content" placeholder="Content" value="{{ old('content') }}">
+                </div>
+
+
+
+                <div>
+                    <button type="submit">Add Todo </button> <br> <a href="/auth/facebook">Connect With Facebook </a>
+                </div>
+              </form>
+              @endif
+
             </div>
         </div>
     </body>

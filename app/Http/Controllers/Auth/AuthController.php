@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Socialite;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -62,4 +62,32 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+    * Redirect the user to the Facebook authentication page.
+    *
+    * @return Response
+    */
+   public function redirectToProvider()
+   {
+       return Socialite::driver('facebook')->redirect();
+   }
+
+   /**
+    * Obtain the user information from Facebook.
+    *
+    * @return Response
+    */
+   public function handleProviderCallback(\Illuminate\Http\Request $request)
+   {
+       $user = Socialite::driver('facebook')->user();
+       $userSession = [
+         "name" =>$user->name,
+         "email"=>$user->email,
+         "avatar"=>$user->avatar,
+         "id" => $user->id,
+       ];
+       $request->session()->push('user', $userSession);
+       return redirect()->route('home');
+   }
 }
