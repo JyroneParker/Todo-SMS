@@ -37,11 +37,12 @@
               border-radius: 50px;
             }
         </style>
+
     </head>
     <body>
+
         <div class="container">
             <div class="content">
-
               @if(isset($user))
               <h2>Welcome back {{$user['name']}}</h2>
               <img src="{{$user['avatar']}}"/>
@@ -96,7 +97,7 @@
                 </div>
               </form>
               @endif
-
+              
             </div>
         </div>
     </body>
