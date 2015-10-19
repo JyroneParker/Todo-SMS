@@ -74,7 +74,7 @@
 
 
                 <div>
-                    <button type="submit">Add Todo </button>
+                    <button type="submit">Add Todo </button> <br> <a href="/auth/facebook">Connect With Facebook </a>
                 </div>
               </form>
               @endif
