@@ -41,7 +41,10 @@ class TodoController extends Controller
           $todo->save();
           //var_dump($todo);exit();
           //launch event
-          event(new TodoCreatedEvent($todo));
+
+          $phone = $request->phone . $request->gateway;
+          //dd($phone);
+          event(new TodoCreatedEvent($todo,$phone));
           return redirect('/');
     }
 

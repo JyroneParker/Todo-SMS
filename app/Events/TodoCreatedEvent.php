@@ -11,15 +11,17 @@ class TodoCreatedEvent extends Event
     use SerializesModels;
 
     public $todo;
+    public $phone;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Todo $todo)
+    public function __construct(Todo $todo, $phone)
     {
         //set variables
         $this->todo = $todo;
+        $this->phone = $phone;
     }
 
     /**

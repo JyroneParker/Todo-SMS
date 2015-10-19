@@ -27,8 +27,9 @@ return view('welcome');
 }]);
 
 
-Route:;get('flush',function(\Illuminate\Http\Request $request){
+Route::get('flush',function(\Illuminate\Http\Request $request){
   $request->session()->flush();
+  return redirect()->route('home');
 });
 Route::post('addTodo','TodoController@store');
 
