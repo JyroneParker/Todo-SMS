@@ -31,8 +31,15 @@ class TodoController extends Controller
     {
         //create Todo Model and
           $todo = new Todo;
+          if ($request->session()->has('user')) {
+            $user = $request->session()->get('user');
+            //var_dump($user); exit();
+            $todo->facebook_id = $user[0]['id'];
+            //var_dump($todo->facebook_id);exit();
+          }
           $todo->content = $request->content;
           $todo->save();
+          //var_dump($todo);exit();
           //launch event
           event(new TodoCreatedEvent($todo));
           return redirect('/');

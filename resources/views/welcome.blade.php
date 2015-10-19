@@ -45,21 +45,40 @@
               @if(isset($user))
               <h2>Welcome back {{$user['name']}}</h2>
               <img src="{{$user['avatar']}}"/>
+              @foreach ($todos as $todo)
+              <p>{{ $todo->content }}</p>
+              @endforeach
+              <form method="POST" action="/addTodo">
+                {!! csrf_field() !!}
+
+                <div>
+
+                    <input type="text" name="content" placeholder="Content" value="{{ old('content') }}">
+                </div>
+
+
+
+                <div>
+                    <button type="submit">Add Todo </button>
+                </div>
+              </form>
+              @else
+              <form method="POST" action="/addTodo">
+                {!! csrf_field() !!}
+
+                <div>
+
+                    <input type="text" name="content" placeholder="Content" value="{{ old('content') }}">
+                </div>
+
+
+
+                <div>
+                    <button type="submit">Add Todo </button>
+                </div>
+              </form>
               @endif
-<form method="POST" action="/addTodo">
-  {!! csrf_field() !!}
 
-  <div>
-
-      <input type="text" name="content" placeholder="Content" value="{{ old('content') }}">
-  </div>
-
-
-
-  <div>
-      <button type="submit">Add Todo </button>
-  </div>
-</form>
             </div>
         </div>
     </body>
