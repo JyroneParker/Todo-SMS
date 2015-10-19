@@ -11,8 +11,18 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/',['as' => 'home', function (\Illuminate\Http\Request $request) {
+  if ($request->session()->has('user')) {
+    //
+    $user = $request->session()->get('user');
+    return view('welcome')->with(['user',$user]);
+
+}
     return view('welcome');
-});
+}]);
 
 Route::post('addTodo','TodoController@store');
+
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');

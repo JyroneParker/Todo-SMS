@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Socialite;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -78,10 +78,14 @@ class AuthController extends Controller
     *
     * @return Response
     */
-   public function handleProviderCallback()
+   public function handleProviderCallback(\Illuminate\Http\Request $request)
    {
        $user = Socialite::driver('facebook')->user();
 
-       // $user->token;
+
+       $request->session()->put('user', $user);
+       
+
+       return redirect()->route('home');
    }
 }

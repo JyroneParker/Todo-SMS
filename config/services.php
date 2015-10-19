@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id'         =>  env('FACEBOOK_ID'),
         'client_secret'     =>  env('FACEBOOK_SECRET'),
-        'redirect'          =>  'http://localhost/home',
+        'redirect'          =>  'http://todo.app/auth/facebook/callback',
     ]
 
 ];

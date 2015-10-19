@@ -39,6 +39,9 @@
         <div class="container">
             <div class="content">
 
+              @if(isset($user))
+              <img src="{{$user->avatar}}"/>
+              @endif
 <form method="POST" action="/addTodo">
   {!! csrf_field() !!}
 
