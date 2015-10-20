@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Gateway;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -16,6 +16,7 @@ class GatewayController extends Controller
     public function index()
     {
         //
+        return Gateway::all();
     }
 
     /**
@@ -37,6 +38,11 @@ class GatewayController extends Controller
     public function store(Request $request)
     {
         //
+        $gateway = Gateway::Create([
+          'name' => $request->name,
+          'gateway' => $request->gateway,
+          ]);
+          return $gateway;
     }
 
     /**
@@ -48,6 +54,7 @@ class GatewayController extends Controller
     public function show($id)
     {
         //
+        return Gateway::find($id);
     }
 
     /**
@@ -71,6 +78,15 @@ class GatewayController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $gateway = Gateway::find($id);
+        if($request->has('name')){
+          $gateway->name = $request->name;
+        }
+        if($request->has('gateway')){
+          $gateway->gateway = $request->gateway;
+        }
+        $gateway->save();
+        return $gateway;
     }
 
     /**
@@ -82,5 +98,7 @@ class GatewayController extends Controller
     public function destroy($id)
     {
         //
+        Gateway::find($id)->delete();
+        return true;
     }
 }
