@@ -12,16 +12,18 @@
 */
 
 Route::get('/',['as' => 'home', function (\Illuminate\Http\Request $request) {
+  $gateways = App\Gateway::all();
   if ($request->session()->has('user')) {
     //
+
     $user = $request->session()->get('user')[0];
      //var_dump($user); //exit();
     $todos = App\Todo::where('facebook_id','=', $user['id'])->get();
     //var_dump($todos); exit();
-    return view('welcome')->with(['user'=> $user, 'todos' => $todos]);
+    return view('welcome')->with(['user'=> $user, 'todos' => $todos, 'gateways' => $gateways]);
 }
 else{
-return view('welcome');
+return view('welcome')->with(['gateways' => $gateways]);
 }
 
 }]);

@@ -83,11 +83,9 @@
                     <br>
                     <input type="tel" name="phone" placeholder="10 digit phone number" value="{{ old('phone') }}">
                     <select name="gateway">
-                      <option value="@txt.att.net ">AT&T</option>
-                      <option value="@mymetropcs.com">Metro PCS</option>
-                      <option value="@messaging.sprintpcs.com">Sprint</option>
-                      <option value="@tmomail.net">T-Mobile</option>
-                      <option value="@vtext.com">Verizon</option>
+                      @foreach($gateways as $gateway)
+                      <option value="{{$gateway->gateway}}">{{ $gateway->name }}</option>
+                      @endforeach
                     </select>
                 </div>
 
@@ -107,11 +105,9 @@
                     <br>
                     <input type="tel" name="phone" placeholder="10 digit phone number" value="{{ old('phone') }}">
                     <select name="gateway">
-                      <option value="@txt.att.net ">AT&T</option>
-                      <option value="@mymetropcs.com">Metro PCS</option>
-                      <option value="@messaging.sprintpcs.com">Sprint</option>
-                      <option value="@tmomail.net">T-Mobile</option>
-                      <option value="@vtext.com">Verizon</option>
+                      @foreach($gateways as $gateway)
+                      <option value="{{$gateway->gateway}}">{{$gateway->name}}</option>
+                      @endforeach
                     </select>
                 </div>
 
