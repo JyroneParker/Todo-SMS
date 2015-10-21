@@ -11,6 +11,7 @@ content="http://todo.jyroneparker.com" />
 The best part? It's 100% free!" />
 <meta property="fb:app_id" content="1645292445709533" />
 <meta property="og:type" content="website" />
+<meta name="og:image" content="http://www.inviewmarketing.ca/wp-content/uploads/2012/01/mobile-marketing.jpg" />
       <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@mastashake08" />
 <meta name="twitter:title" content="Todo SMS" />
