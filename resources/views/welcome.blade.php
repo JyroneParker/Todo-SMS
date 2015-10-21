@@ -2,6 +2,20 @@
 <html>
     <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta property="og:title"
+content="Send FREE text reminders" />
+<meta property="og:site_name" content="Todo SMS"/>
+<meta property="og:url"
+content="http://todo.jyroneparker.com" />
+<meta property="og:description" content="Send free reminder texts to yourself or anyone in the world.
+The best part? It's 100% free!" />
+<meta property="fb:app_id" content="1645292445709533" />
+<meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@mastashake08" />
+<meta name="twitter:title" content="Todo SMS" />
+<meta name="twitter:description" content="Send text reminders to yourself or anyone in the world for free!" />
+<meta name="twitter:image" content="http://www.inviewmarketing.ca/wp-content/uploads/2012/01/mobile-marketing.jpg" />
         <title>Todo SMS</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
