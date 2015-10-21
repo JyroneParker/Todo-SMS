@@ -37,7 +37,7 @@
               <p class="text-center"> This simple app allows you to create a todo item and send it to yourself as a text message. If you want persistence log in with Facebook!</p>
               @if(isset($user))
               <h2 class="text-center">Welcome back {{$user['name']}}</h2>
-              <img class="facebook" src="{{$user['avatar']}}"/>
+              <img class="img-responsive center-block" src="{{$user['avatar']}}"/>
               @foreach ($todos as $todo)
               <p class="text-center">{{ $todo->content }}</p>
               @endforeach
