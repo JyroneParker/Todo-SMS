@@ -28,7 +28,13 @@ return view('welcome')->with(['gateways' => $gateways]);
 
 }]);
 
-
+Route::get('delete',function(){
+  $todos = App\Todo::all();
+  foreach($todos as $todo){
+    $todo->delete();
+  }
+  return redirect()->route('home');
+});
 Route::get('flush',function(\Illuminate\Http\Request $request){
   $request->session()->flush();
   return redirect()->route('home');

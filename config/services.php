@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id'         =>  env('FACEBOOK_ID'),
         'client_secret'     =>  env('FACEBOOK_SECRET'),
-        'redirect'          =>  'http://todo.jyroneparker.com/auth/facebook/callback',
+        'redirect'          =>  env('FACEBOOK_CALLBACK_URL'),
     ]
 
 ];
