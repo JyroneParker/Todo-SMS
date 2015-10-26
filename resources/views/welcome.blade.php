@@ -70,6 +70,23 @@ The best part? It's 100% free!" />
                       <option value="{{$gateway->gateway}}">{{ $gateway->name }}</option>
                       @endforeach
                     </select>
+                    <input type="radio" name="timer" value="0" checked>Now
+
+                    <input type="radio" name="timer" value="60">1 Minute
+
+                    <input type="radio" name="timer" value="300">5 minutes
+
+                    <input type="radio" name="timer" value="600">10 minutes
+
+                    <input type="radio" name="timer" value="900">15 Minutes
+
+                    <input type="radio" name="timer" value="1800">30 Minutes
+
+                    <input type="radio" name="timer" value="3600">1 Hour
+
+                    <input type="radio" name="timer" value="43200">12 Hours
+
+                    <input type="radio" name="timer" value="86400">24 Hours
                 </div>
 
 
@@ -93,6 +110,23 @@ The best part? It's 100% free!" />
                       <option value="{{$gateway->gateway}}">{{$gateway->name}}</option>
                       @endforeach
                     </select>
+                    <input type="radio" name="timer" value="0" checked>Now
+
+                    <input type="radio" name="timer" value="60">1 Minute
+
+                    <input type="radio" name="timer" value="300">5 minutes
+
+                    <input type="radio" name="timer" value="600">10 minutes
+
+                    <input type="radio" name="timer" value="900">15 Minutes
+
+                    <input type="radio" name="timer" value="1800">30 Minutes
+
+                    <input type="radio" name="timer" value="3600">1 Hour
+
+                    <input type="radio" name="timer" value="43200">12 Hours
+
+                    <input type="radio" name="timer" value="86400">24 Hours
                 </div>
 
 

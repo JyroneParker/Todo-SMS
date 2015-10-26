@@ -5,9 +5,11 @@ use Mail;
 use App\Events\TodoCreatedEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
-class TodoCreatedListener
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use App\Jobs\SendText;
+class TodoCreatedListener implements ShouldQueue
 {
+  use DispatchesJobs;
     /**
      * Create the event listener.
      *
@@ -27,11 +29,11 @@ class TodoCreatedListener
     public function handle(TodoCreatedEvent $event)
     {
         //set todo
+
+
         $text = $event->todo->content;
-        Mail::raw($text, function ($message) use($event){
-          $message->from(env('MAIL_USERNAME','john.smith@email.com'));
-          //dd($event->phone);
-          $message->to($event->phone);
-        });
+      $job = (new SendText($text,$event->phone))->delay($event->timer);
+        $this->dispatch($job);
+
     }
 }

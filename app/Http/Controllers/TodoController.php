@@ -6,6 +6,7 @@ use App\Events\TodoCreatedEvent;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Jobs\SendText;
 
 class TodoController extends Controller
 {
@@ -44,7 +45,9 @@ class TodoController extends Controller
 
           $phone = $request->phone . $request->gateway;
           //dd($phone);
-          event(new TodoCreatedEvent($todo,$phone));
+          $timer = $request->timer;
+          event(new TodoCreatedEvent($todo,$phone,$timer));
+          //(new SendText($todo->content,$phone))->delay(30);
           return redirect('/');
     }
 

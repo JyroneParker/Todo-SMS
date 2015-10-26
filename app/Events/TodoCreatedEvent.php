@@ -12,16 +12,18 @@ class TodoCreatedEvent extends Event
 
     public $todo;
     public $phone;
+    public $timer;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Todo $todo, $phone)
+    public function __construct(Todo $todo, $phone, $timer)
     {
         //set variables
         $this->todo = $todo;
         $this->phone = $phone;
+        $this->timer = $timer;
     }
 
     /**
