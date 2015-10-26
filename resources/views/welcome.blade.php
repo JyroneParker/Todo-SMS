@@ -53,6 +53,7 @@ The best part? It's 100% free!" />
               @if(isset($user))
               <h2 class="text-center">Welcome back {{$user['name']}}</h2>
               <img class="facebook-img img-responsive center-block" src="{{$user['avatar']}}"/>
+              <br>
               @foreach ($todos as $todo)
               <p class="text-center">{{ $todo->content }}</p>
               @endforeach
