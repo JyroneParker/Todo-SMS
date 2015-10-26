@@ -5991,4 +5991,7 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.facebook-image {
+  border-radius: 25px; }
+
 /*# sourceMappingURL=app.css.map */
