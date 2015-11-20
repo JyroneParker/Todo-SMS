@@ -47,7 +47,7 @@ class TodoController extends Controller
           //dd($phone);
           $timer = $request->timer;
           event(new TodoCreatedEvent($todo,$phone,$timer));
-          //(new SendText($todo->content,$phone))->delay(30);
+          $request->session()->flash('status', 'Message Sent!');
           return redirect('/');
     }
 

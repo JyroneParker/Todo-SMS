@@ -12,6 +12,7 @@
 */
 
 Route::get('/',['as' => 'home', function (\Illuminate\Http\Request $request) {
+  //dd($request);
   $gateways = App\Gateway::all();
   if ($request->session()->has('user')) {
     //
@@ -20,10 +21,10 @@ Route::get('/',['as' => 'home', function (\Illuminate\Http\Request $request) {
      //var_dump($user); //exit();
     $todos = App\Todo::where('facebook_id','=', $user['id'])->get();
     //var_dump($todos); exit();
-    return view('welcome')->with(['user'=> $user, 'todos' => $todos, 'gateways' => $gateways]);
+    return view('welcome')->with(['user'=> $user, 'todos' => $todos, 'gateways' => $gateways,'status' => $request->session()->get('status')]);
 }
 else{
-return view('welcome')->with(['gateways' => $gateways]);
+return view('welcome')->with(['gateways' => $gateways,'status' => $request->session()->get('status')]);
 }
 
 }]);

@@ -45,6 +45,11 @@ The best part? It's 100% free!" />
 
     </head>
     <body>
+      @if($status != '')
+      <div class="alert alert-success text-center">
+  <strong>{{$status}}</strong>
+</div>
+@endif
 
         <div class="container">
             <div class="content">
