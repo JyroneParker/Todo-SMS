@@ -1,8 +1,21 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "mastashake08/todo-sms",
+    "description": "Todo App with SMS alerts written in Laravel",
+    "keywords": ["framework", "laravel","Jyrone Parker", "sms", "text services"],
     "license": "MIT",
+    "homepage": "https://github.com/mastashake08/todo-sms",
+    "authors": [
+        {
+            "name": "Jyrone Parker",
+            "email": "jyrone.parker@gmail.com",
+            "homepage": "http://www.jyroneparker.com",
+            "role": "Lead Developer"
+        }
+    ],
+    "support": {
+        "email": "jyrone.parker@gmail.com",
+        "issues": "https://github.com/mastashake08/todo-sms/issues"
+    },
     "type": "project",
     "require": {
         "php": ">=5.5.9",
