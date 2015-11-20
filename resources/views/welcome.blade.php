@@ -31,6 +31,7 @@ The best part? It's 100% free!" />
         ga('send', 'pageview');
 
         </script>
+        <center>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Todo Top Banner -->
         <ins class="adsbygoogle"
@@ -41,6 +42,7 @@ The best part? It's 100% free!" />
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+      </center>
 
 
     </head>
