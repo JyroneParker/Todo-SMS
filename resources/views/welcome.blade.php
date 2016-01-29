@@ -35,7 +35,7 @@ The best part? It's 100% free!" />
 
         <center>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.js"></script>
         <script>$.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
