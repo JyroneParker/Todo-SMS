@@ -21,7 +21,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "laravel/socialite": "^2.0",
-        "pda/pheanstalk": "^3.1"
+        "pda/pheanstalk": "^3.1",
+        "stripe/stripe-php": "^3.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

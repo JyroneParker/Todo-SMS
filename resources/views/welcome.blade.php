@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta property="og:title"
 content="Send FREE text reminders" />
@@ -31,8 +32,16 @@ The best part? It's 100% free!" />
         ga('send', 'pageview');
 
         </script>
+
         <center>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+        <script>$.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+    });</script>
+
         <!-- Todo Top Banner -->
         <ins class="adsbygoogle"
              style="display:block"
@@ -56,7 +65,12 @@ The best part? It's 100% free!" />
         <div class="container">
             <div class="content">
               <h1 class="text-center">Todo SMS</h1>
-              <p class="text-center"> <strong>This simple app allows you to create a todo item and send it to yourself as a text message. If you want persistence log in with Facebook!</strong></p>
+              <p class="text-center"> <strong>This simple app allows you to create a todo item and send it to yourself as a text message. If you want persistence log in with Facebook!</strong>
+                If you like this app or the content on my <a href="http://www.jyroneparker.com">blog</a>, please show your support!
+
+
+
+              </p>
               <center>
               <div class="embed-responsive embed-responsive-16by9">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/8qQKnhGVx_w" frameborder="0" allowfullscreen></iframe>
@@ -118,7 +132,44 @@ The best part? It's 100% free!" />
 
 
                 <div class="form-group">
-                    <button class="btn btn-success" type="submit">Send Todo </button>
+                    <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-send"></i> Send Todo </button><script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <button class="btn btn-info" id="customButton"><i class="glyphicon glyphicon-usd"></i> Donate</button>
+
+    <script>
+    console.log('hi');
+    var handler = StripeCheckout.configure({
+    key: "{{env('STRIPE_KEY')}}",
+    image: 'https://en.gravatar.com/userimage/70717632/01ef556bed004cc9abf426fa649bd196.jpg?size=200',
+    locale: 'auto',
+    token: function(token) {
+    // Use the token to create the charge with a server-side script.
+    // You can access the token ID with `token.id`
+    var data = {
+    stripeToken: token.id,
+
+  };
+  $.post('/payment', data, function(result){});
+    }
+    });
+
+    $('#customButton').on('click', function(e) {
+    // Open Checkout with further options
+    console.log('click');
+    handler.open({
+    name: 'Jyrone Parker',
+    description: 'Kind Donation',
+    amount: 100
+    });
+    e.preventDefault();
+    });
+
+    // Close Checkout on page navigation
+    $(window).on('popstate', function() {
+    handler.close();
+    });
+    </script>
+
                 </div>
               </form>
               @else
@@ -170,11 +221,49 @@ The best part? It's 100% free!" />
 
 
                 <div class="form-group">
-                    <button class="btn btn-success" type="submit">Send Todo </button>
+                    <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-send"></i> Send Todo </button>
                     <a class="btn btn-default" href="/auth/facebook"><span class="glyphicon glyphicon-user"></span> Connect To Facebook</a>
+                    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+    <button class="btn btn-info" id="customButton"><i class="glyphicon glyphicon-usd"></i> Donate</button>
+
+                    <script>
+                    console.log('hi');
+                    var handler = StripeCheckout.configure({
+                    key: "{{env('STRIPE_KEY')}}",
+                    image: 'https://en.gravatar.com/userimage/70717632/01ef556bed004cc9abf426fa649bd196.jpg?size=200',
+                    locale: 'auto',
+                    token: function(token) {
+                    // Use the token to create the charge with a server-side script.
+                    // You can access the token ID with `token.id`
+                    var data = {
+                    stripeToken: token.id,
+
+                  };
+                  $.post('/payment', data, function(result){});
+                    }
+                    });
+
+                    $('#customButton').on('click', function(e) {
+                    // Open Checkout with further options
+                    console.log('click');
+                    handler.open({
+                    name: 'Jyrone Parker',
+                    description: 'Kind Donation',
+                    amount: 100
+                    });
+                    e.preventDefault();
+                    });
+
+                    // Close Checkout on page navigation
+                    $(window).on('popstate', function() {
+                    handler.close();
+                    });
+                    </script>
 
                 </div>
               </form>
+
               @endif
 
             </div>
