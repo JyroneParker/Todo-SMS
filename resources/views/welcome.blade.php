@@ -96,6 +96,7 @@ The best part? It's 100% free!" />
               (adsbygoogle = window.adsbygoogle || []).push({});
               </script>
             </center>
+            <br>
               <form method="POST" action="/addTodo" role="form">
                 {!! csrf_field() !!}
 
@@ -185,6 +186,7 @@ The best part? It's 100% free!" />
               (adsbygoogle = window.adsbygoogle || []).push({});
               </script>
             </center>
+            <br>
               <form method="POST" action="/addTodo" role="form">
                 {!! csrf_field() !!}
 
