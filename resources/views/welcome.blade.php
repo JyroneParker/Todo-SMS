@@ -57,11 +57,11 @@ The best part? It's 100% free!" />
             <div class="content">
               <h1 class="text-center">Todo SMS</h1>
               <p class="text-center"> <strong>This simple app allows you to create a todo item and send it to yourself as a text message. If you want persistence log in with Facebook!</strong></p>
-              <!--<center>
+              <center>
               <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="embed-responsive-item" width="580" height="315" src="https://www.youtube.com/embed/dV4TK6xFoHg" frameborder="0" allowfullscreen></iframe>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/8qQKnhGVx_w" frameborder="0" allowfullscreen></iframe>
               </div>
-            </center> -->
+            </center>
               <br>
               @if(isset($user))
               <h2 class="text-center">Welcome back {{$user['name']}}</h2>
